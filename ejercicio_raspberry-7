@@ -1,0 +1,31 @@
+import sense_hat
+import random
+
+sense = sense_hat.SenseHat()
+sense.clear()
+
+
+def my_range(x, y, increment=1):
+    if (x<=y):  # seqüència ascendent
+        while x <= y:
+            #Retorna l'element actual del rang (llista)
+            yield x
+            x = x + increment
+    else:  # seqüència descendent
+        while x+1 != y:
+            #Retorna l'element actual del rang (llista)
+            yield x
+            x = x - increment
+
+
+# Edit these variables to change key game parameters
+green_color = (0,255,0)      # RGB color of column pixels
+yellow_color = (0,255,255)
+
+
+
+x=random.randint(0,7)
+y=0
+
+for y in my_range(0,7):
+  print sense.set_pixel(y,x,yellow_color)
